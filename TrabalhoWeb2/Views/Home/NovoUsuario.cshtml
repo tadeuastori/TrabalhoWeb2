@@ -1,0 +1,40 @@
+﻿@model TrabalhoWeb2.WSAula.Usuario
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>NovoUsuario</title>
+</head>
+<body>
+    <div>
+        @Html.ActionLink("<- Voltar", "Index")
+        <br /><br />
+
+        @Html.ViewBag.Msg
+
+        <br /><br />
+
+        <form id="frmNovoUsuario" method="post" action="~/Home/salvarUsuario">
+            @Html.LabelFor(n => n.Nome)
+            @Html.TextBoxFor(n => n.Nome)
+            <br />
+            @Html.LabelFor(n => n.Login)
+            @Html.TextBoxFor(n => n.Login)
+            <br />
+            @Html.LabelFor(n => n.Senha)
+            @Html.TextBoxFor(n => n.Senha)
+            <br />
+            @Html.Label("Confirma Senha")
+            @Html.Password("txtSenha02")
+            <br /><br />
+            <input type="submit" value="Salvar" />
+            <input type="reset" value="Limpar" />
+        </form>
+    </div>
+</body>
+</html>

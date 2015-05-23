@@ -1,0 +1,82 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ExibirCompromisso</title>
+
+    @if (false)
+    {
+        <script src="~/Script/jquery-2.1.0-vsdoc.js"></script>
+    }
+
+    <script src="~/Script/jquery-2.1.0.min.js"></script>
+
+    <script>
+        $(document).ready(
+            function () {
+                $.getJSON(
+                    '@Url.Content("~/Agenda/retornaCompromissos")',
+                            { qtd: 5 },
+                            function (data) {
+                                $("#trContainer").html('');
+
+                                if (data.length == 0) {
+
+                                    $("#trContainer").append('<tr><td><h2>Sem compromissos futuros</h2></td></tr>');
+
+                                } else {
+
+                                    $.each(
+                                    data,
+                                    function (index) {
+                                        var d = new Date(parseInt(data[index].DataCompromisso.substr(6)));
+
+                                        var tag = '<tr><td>' +
+                                            '<div id="tituloCompromisso"><b>Título:</b> ' + data[index].Titulo + '</div>' +
+                                            '<div id="dataCompromisso"><b>Data:</b> ' + d.toLocaleString() + '</div>' +
+                                            '<div id="DescricaoCompromisso"><b>Descrição:</b> ' + data[index].Descricao + '</div>' +
+                                            '<div id="participantesCompromisso"><b>Participantes:</b> ';
+
+                                        $.getJSON(
+                                            '@Url.Content("~/Agenda/retornaParticipantes")',
+                                            { evento: data[index].AgendaId },
+                                            function (val) {
+                                                $.each(
+                                                    val,
+                                                    function (ind) {
+                                                        tag += val[ind].Nome + ', '
+                                                    });
+                                                $("#trContainer").append(tag + '</div>' + '</td></tr>');
+                                            })
+                                    })
+                                }
+                            })
+            })
+    </script>
+
+</head>
+<body>
+    <div>
+        <table cellspacing="20">
+            <tr>
+                <td class="menu" id="lnkInicio">Cadastrar Compromisso</td>
+            </tr>
+        </table>
+    </div>
+
+    <br /><br />
+
+    <div>
+        <table>
+            <thead><tr><td></td></tr></thead>
+            <tbody id="trContainer"></tbody>
+            <tfoot><tr><td> </td></tr></tfoot>
+        </table>
+    </div>
+</body>
+</html>
