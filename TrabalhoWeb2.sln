@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrabalhoWeb2", "TrabalhoWeb2\TrabalhoWeb2.csproj", "{49068CD0-C0E6-4FAC-9EF0-8DB2E42B7998}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A8A0297D-9BF9-47C6-B32C-B3F45B3B9257} = {A8A0297D-9BF9-47C6-B32C-B3F45B3B9257}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WS", "WS\WS.csproj", "{A8A0297D-9BF9-47C6-B32C-B3F45B3B9257}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{49068CD0-C0E6-4FAC-9EF0-8DB2E42B7998}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49068CD0-C0E6-4FAC-9EF0-8DB2E42B7998}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49068CD0-C0E6-4FAC-9EF0-8DB2E42B7998}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49068CD0-C0E6-4FAC-9EF0-8DB2E42B7998}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8A0297D-9BF9-47C6-B32C-B3F45B3B9257}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8A0297D-9BF9-47C6-B32C-B3F45B3B9257}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8A0297D-9BF9-47C6-B32C-B3F45B3B9257}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8A0297D-9BF9-47C6-B32C-B3F45B3B9257}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:6742/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TrabalhoWeb2.Models" />
+  <xs:element name="verificaLogin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="usuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="senha" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="verificaLoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="verificaLoginResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="adicionaUsuario">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/TrabalhoWeb2.Models" minOccurs="0" name="usuario" nillable="true" type="q1:Usuario" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="adicionaUsuarioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="adicionaUsuarioResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="adicionaAgenda">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/TrabalhoWeb2.Models" minOccurs="0" name="agenda" nillable="true" type="q2:Agenda" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="adicionaAgendaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="adicionaAgendaResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="adicionaParticipante">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/TrabalhoWeb2.Models" minOccurs="0" name="participante" nillable="true" type="q3:Participantes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="adicionaParticipanteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="adicionaParticipanteResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="lstCompromissos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdUsuario" type="xs:int" />
+        <xs:element minOccurs="0" name="qtd" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="lstCompromissosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/TrabalhoWeb2.Models" minOccurs="0" name="lstCompromissosResult" nillable="true" type="q4:ArrayOfAgenda" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="lstUsuario">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idUsuario" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="lstUsuarioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/TrabalhoWeb2.Models" minOccurs="0" name="lstUsuarioResult" nillable="true" type="q5:ArrayOfUsuario" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="lstParticipantesCompromisso">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idAgenda" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="lstParticipantesCompromissoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/TrabalhoWeb2.Models" minOccurs="0" name="lstParticipantesCompromissoResult" nillable="true" type="q6:ArrayOfParticipantes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="lstUsuarioParticipantes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/TrabalhoWeb2.Models" minOccurs="0" name="lstPart" nillable="true" type="q7:ArrayOfParticipantes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="lstUsuarioParticipantesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/TrabalhoWeb2.Models" minOccurs="0" name="lstUsuarioParticipantesResult" nillable="true" type="q8:ArrayOfUsuario" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="retornaCompromisso">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idAgenda" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="retornaCompromissoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/TrabalhoWeb2.Models" minOccurs="0" name="retornaCompromissoResult" nillable="true" type="q9:Agenda" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="retornaUsuarioPorID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idUsuario" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="retornaUsuarioPorIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/TrabalhoWeb2.Models" minOccurs="0" name="retornaUsuarioPorIDResult" nillable="true" type="q10:Usuario" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="retornaUsuarioPorLOGIN">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="retornaUsuarioPorLOGINResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/TrabalhoWeb2.Models" minOccurs="0" name="retornaUsuarioPorLOGINResult" nillable="true" type="q11:Usuario" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
