@@ -128,13 +128,21 @@ namespace WS
             return result;
         }
 
-        public List<Agenda> lstCompromissos(int IdUsuario, int qtd)
+        public List<Agenda> lstCompromissos(int IdUsuario, int qtd = 0)
         {
             try
             {
                 using (DataAccessController dac = new DataAccessController())
                 {
-                    return dac.Agenda.Where(x => x.UsuarioId == IdUsuario && x.DataCompromisso >= DateTime.Now).Take(qtd).OrderBy(o => o.DataCompromisso).ToList();
+                    if(qtd > 0)
+                    {
+                        return dac.Agenda.Where(x => x.UsuarioId == IdUsuario && x.DataCompromisso >= DateTime.Now).Take(qtd).OrderBy(o => o.DataCompromisso).ToList();
+                    }
+                    else
+                    {
+                        return dac.Agenda.Where(x => x.UsuarioId == IdUsuario && x.DataCompromisso >= DateTime.Now).OrderBy(o => o.DataCompromisso).ToList();
+                    }
+                    
                 }
             }
             catch (Exception)
