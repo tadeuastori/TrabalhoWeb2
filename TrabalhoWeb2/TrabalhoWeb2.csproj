@@ -131,6 +131,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Global.asax" />
+    <Content Include="Media\Script\jquery-2.1.4.min.map" />
     <None Include="Service References\WSAula\Service1.disco" />
     <None Include="Service References\WSAula\configuration91.svcinfo" />
     <None Include="Service References\WSAula\configuration.svcinfo" />
@@ -138,8 +139,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Script\jquery-2.1.0-vsdoc.js" />
-    <Content Include="Script\jquery-2.1.0.min.js" />
+    <None Include="Media\Script\jquery-2.1.4-vsdoc.js" />
+    <Content Include="Media\Css\main.css" />
+    <Content Include="Media\Script\jquery-2.1.4.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
