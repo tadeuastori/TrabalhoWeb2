@@ -1,0 +1,115 @@
+﻿* {
+    color: #000;
+    font-family: Helvetica;
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+    text-decoration: none
+}
+
+.area-titulo {
+    background-color: #4b77be;
+    border-bottom: 0.25em solid #446cb3;
+    margin: 0 auto;
+    padding-bottom: 0.75em;
+    padding-top: 0.75em;
+    width: 55em;
+}
+
+.titulo {
+    color: #fff;
+    font-size: 1.75em;
+    text-align: center;
+}
+
+.main {
+    background-color: #dadfe1;
+    height: auto;
+    margin: 5em auto;
+    width: 55em;
+}
+
+fieldset {
+    border: 0;
+}
+
+.form {
+    margin: 1em auto;
+    width: 50em;
+}
+
+.form-group {
+    margin-top: 1em;
+}
+
+.form-item {
+  margin-bottom: 1.25em;
+  max-width: none;
+  position: relative;
+}
+
+.form-control {
+  box-sizing: border-box;
+  border-radius: 0.15em;
+  border: 0.1em solid #999;
+  color: #333333;
+  font-size: 1em;
+  display: block;
+  height: 3em;
+  padding: 1.5em 1.5em 0;
+  width: 100%;
+}
+
+.form-control:focus {
+  border-color: #428bca;
+}
+
+.label-float {
+  color: #999999;
+  position: absolute;
+  top: 0;
+  line-height: 1.75em;
+  padding: 0.75em 1.5em;
+  -webkit-transition: line-height linear 0.2s;
+  transition: line-height linear 0.2s;
+  cursor: text;
+}
+
+    .form-control:focus + .label-float,
+    .form-control:valid + .label-float {
+        color: #ccc;
+        font-size: 0.75em;
+        line-height: 1.5;
+        padding: 0 1.5em;
+    }
+
+.botao {
+    background-color: #4b77be;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.25em;
+    margin-bottom: 1.25em;
+    margin-top: 0.25em;
+    padding: 0.5em 1.75em;
+}
+
+    .botao:focus,
+    .botao:hover {
+        background-color: #1e8bc3;
+    }
+
+.float-link {
+    float: right;
+    margin-top: 1em;
+}
+
+.link {
+    color: #4b77be;
+    font-weight: bold;
+}
+
+    .link:focus,
+    .link:hover {
+        color: #1e8bc3;
+    }
