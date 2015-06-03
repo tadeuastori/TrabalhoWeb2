@@ -75,9 +75,10 @@ fieldset {
   cursor: text;
 }
 
-    .form-control:focus + .label-float {
+    .form-control:focus + .label-float,
+    .form-control:valid + .label-float {
         color: #ccc;
-        font-size: 1em;
+        font-size: 0.75em;
         line-height: 1.5;
         padding: 0 1.5em;
     }

@@ -142,6 +142,7 @@
     <None Include="Media\Script\jquery-2.1.4-vsdoc.js" />
     <Content Include="Media\Css\main.css" />
     <Content Include="Media\Script\jquery-2.1.4.min.js" />
+    <Content Include="Media\Script\script.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
