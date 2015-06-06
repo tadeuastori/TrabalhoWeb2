@@ -2,7 +2,7 @@
             function () {
                 $.getJSON(
                     '@Url.Content("~/Agenda/retornaCompromissos")',
-                            { qtd: 5 },
+                            { qtd: 0 },
                             function (data) {
                                 $("#trContainer").html('');
 

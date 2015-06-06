@@ -46,7 +46,8 @@ namespace TrabalhoWeb2.Controllers
         }
 
         [HttpGet]
-        public JsonResult retornaCompromissos(int qtd)
+        public JsonResult 
+            Compromissos(int qtd)
         {
             WSAula.Service1Client ws = new WSAula.Service1Client();
 
