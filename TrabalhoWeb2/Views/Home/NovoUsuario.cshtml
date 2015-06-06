@@ -16,7 +16,10 @@
         <div class="area-titulo">
             <h1 class="titulo">Cadastro</h1>
         </div>
-        @Html.ViewBag.Msg
+        <span>
+            @Html.ViewBag.MsgErro
+            @Html.ViewBag.Msg
+        </span>
         <section class="form">            
             <form id="frmNovoUsuario" method="post" action="~/Home/salvarUsuario">
                 <fieldset>
@@ -38,9 +41,9 @@
                             @Html.Label("Confirma Senha", new { @class = "label-float" })
                             </div>
                         <button class="botao" type="submit">Salvar</button>
-                        <button class="botao" type="reset">Limpar</button>
+                        <button class="botao" type="reset">Limpar Campos</button>
                         <span class="float-link">
-                            @Html.ActionLink("« Voltar", "Index", null, new { @class = "link" })
+                            @Html.ActionLink("« Cancelar Cadastro", "Index", null, new { @class = "link" })
                         </span>
                     </section>
                 </fieldset>

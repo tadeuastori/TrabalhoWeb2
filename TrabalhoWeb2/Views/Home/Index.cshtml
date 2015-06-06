@@ -13,10 +13,13 @@
 <body>
     <main class="main">
         <div class="area-titulo">
-            <h1 class="titulo">Bem Vindo</h1>
+            <h1 class="titulo">Login Agenda</h1>
         </div>
-        @Html.ViewBag.MsgErro
-        <section  class="form">
+        <span>
+            @Html.ViewBag.MsgErro
+            @Html.ViewBag.Msg
+        </span>
+            <section class="form">
             <form method="post" id="frmLogin" action="~/Home/Login">
                 <fieldset>
                     <section class="form-group">
@@ -30,12 +33,12 @@
                         </div>
                         <button class="botao" type="submit">Entrar</button>
                         <span class="float-link">
-                            @Html.ActionLink("Novo Usuário", "NovoUsuario", null , new { @class = "link" })
+                            @Html.ActionLink("Novo Usuário", "NovoUsuario", null, new { @class = "link" })
                         </span>
                     </section>
                 </fieldset>
             </form>
-        </section>        
+        </section>
     </main>
 
 

@@ -12,11 +12,28 @@ namespace TrabalhoWeb2.Controllers
         //
         // GET: /Agenda/
 
-        public ActionResult ExibirCompromisso()
+        public ActionResult ExibirCompromisso()//ver quando usar
+        {
+            //Possívelmente este será completamente substituído pela tela inicial que contem os menus!
+            return View();
+        }
+
+        public ActionResult BoasVindas()//Tela Inicial com os menus
         {
 
             return View();
         }
+
+        public ActionResult CadastrarCompromisso()//Tela para inserir os compromissos
+        {
+            return View();
+        }
+
+        public ActionResult ListarCompromissos()//Tela para exibir todos os compromisso cadastrados e permitir os compartilhamentos
+        {
+            return View();
+        }
+
 
         public ActionResult NovoCompromisso()
         {
@@ -53,7 +70,24 @@ namespace TrabalhoWeb2.Controllers
             JsonResult js = new JsonResult() { JsonRequestBehavior = JsonRequestBehavior.AllowGet, Data = usuario };
             return js;
         }
+
+
+        [HttpPost]
+        public ActionResult SalvarCompromisso(WSAula.Agenda model)
+        {
+            WSAula.Service1Client ws = new WSAula.Service1Client();
+
+            if (ModelState.IsValid && ws.adicionaAgenda(model))
+            {
+               ViewBag.Msg = "Compromisso adicionado com sucesso";
+               return View("BoasVindas");
+            }
+            else
+            {
+                ViewBag.MsgErro = "Usuario não foi adicionado";
+                return View("CadastrarCompromissos");
+            }
+        }
+
     }
-
-
 }

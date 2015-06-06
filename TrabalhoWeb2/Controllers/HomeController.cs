@@ -31,7 +31,8 @@ namespace TrabalhoWeb2.Controllers
             {
                 MvcApplication.UsuarioID = ws.retornaUsuarioPorLOGIN(txtUsuario).UsuarioId;
 
-                return RedirectToAction("ExibirCompromisso", "Agenda");
+                return RedirectToAction("BoasVindas", "Agenda");//Antes era tela ExibirCompromissos
+                ViewBag.Msg = "Usuário Cadastrado com sucesso";
             }
             else
             {
@@ -39,6 +40,7 @@ namespace TrabalhoWeb2.Controllers
                 return View("Index");
             }
         }
+
 
         [HttpPost] 
         public ActionResult salvarUsuario(WSAula.Usuario model)
@@ -49,23 +51,28 @@ namespace TrabalhoWeb2.Controllers
             if (ws.verificaLogin(model.Login, model.Senha))
             {
                 ViewBag.Msg = "Usuario já existe";
+                return View("NovoUsuario");
             }
             else
             {
                 if (ModelState.IsValid && ws.adicionaUsuario(model))
                 {
                     ViewBag.Msg = "Usuario adicionado com sucesso";
+                    return View("Index");
                 }
                 else
                 {
-                    ViewBag.Msg = "Usuario não foi adicionado";
+                    ViewBag.MsgErro = "Usuario não foi adicionado";
+
+                    ModelState.Clear();
+                    return View("NovoUsuario");
                 }
 
             }
+                      
 
-            ModelState.Clear();
 
-            return View("NovoUsuario");
+           // return View("NovoUsuario");
         }
     }
 }

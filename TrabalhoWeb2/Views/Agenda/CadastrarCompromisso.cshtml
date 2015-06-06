@@ -1,0 +1,60 @@
+﻿@model TrabalhoWeb2.WSAula.Agenda
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>NovoCompromisso</title>
+    <link href="~/Media/Css/main.css" rel="stylesheet" />
+</head>
+<body>
+    <main class="main">
+        <div class="area-titulo">
+            <h1 class="titulo">Cadastro de Compromisso</h1>
+        </div>
+        <span>
+            @Html.ViewBag.MsgErro
+            @Html.ViewBag.Msg
+        </span>
+        <section class="form">
+            <form id="frmNovoCompromisso" method="post" action="~/Agenda/SalvarCompromisso">
+                <fieldset>
+                    <section class="form-group">
+                        <div class="form-item">
+                            @Html.TextBoxFor(n => n.Titulo, null, new { @class = "form-control", Autofocus = "true", required = "true", pattern = "[A-Za-z].{3,}", title = "Digite o titulo de seu compromisso!." })
+                            @Html.LabelFor(n => n.Titulo, new { @class = "label-float" })
+                        </div>
+                        <div class="form-item">
+                            @Html.TextBoxFor(n => n.DataCompromisso, null, new { @class = "form-control", type = "date", Autofocus = "true", required = "true", title = "Digite a data de seu compromisso!." })
+                            @Html.LabelFor(n => n.DataCompromisso, new { @class = "label-float" })
+                        </div>
+                        <div class="form-item">
+                            @Html.TextAreaFor(n => n.Descricao, new { @class = "form-control", required = "true", pattern = "[A-Za-z].{3,}", title = "Digite a descriçao de seu compromisso aqui!." })
+                            @Html.LabelFor(n => n.Descricao, new { @class = "label-float" })
+                        </div>
+                        <button class="botao" type="submit">Salvar</button>
+                        <button class="botao" type="submit">Compartilhar</button>
+                        <button class="botao" type="reset">LimparCampos</button>
+                        <span class="float-link">
+                            @Html.ActionLink("« Cancelar Cadastro", "BoasVindas", null, new { @class = "link" })
+                        </span>
+                    </section>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+
+
+    <script src="~/Media/Script/jquery-2.1.4.min.js"></script>
+    @if (false)
+    {
+        <script src="~/Media/Script/jquery-2.1.4-vsdoc.js"></script>
+    }
+    <script src="~/Media/Script/script.js"></script>
+
+</body>
+</html>

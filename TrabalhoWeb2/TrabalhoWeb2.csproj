@@ -128,7 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Global.asax" />
     <Content Include="Media\Script\jquery-2.1.4.min.map" />
@@ -171,6 +171,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Views\Agenda\ExibirCompromisso.cshtml" />
+    <Content Include="Views\Agenda\BoasVindas.cshtml" />
+    <Content Include="Views\Agenda\CadastrarCompromisso.cshtml" />
+    <Content Include="Views\Agenda\ListarCompromissos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
