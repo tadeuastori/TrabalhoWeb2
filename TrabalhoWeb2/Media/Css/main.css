@@ -181,6 +181,11 @@ fieldset {
     font-weight: bold;
 }
 
+.msg p {
+    color: #446cb3;
+    margin-left: 1.5em;
+}
+
 .rodape {
     bottom: 1em;
     font-size: 1.25em;  
