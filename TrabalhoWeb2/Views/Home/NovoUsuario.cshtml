@@ -4,9 +4,9 @@
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="pt-br">
 <head>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>NovoUsuario</title>
     <link href="~/Media/Css/main.css" rel="stylesheet" />
@@ -16,48 +16,51 @@
         <div class="area-titulo">
             <h1 class="titulo">Cadastro</h1>
         </div>
-        <span>
+        <span class="msg">
             @Html.ViewBag.MsgErro
             @Html.ViewBag.Msg
         </span>
-        <section class="form">            
+        <section class="form">
             <form id="frmNovoUsuario" method="post" action="~/Home/salvarUsuario">
                 <fieldset>
                     <section class="form-group">
                         <div class="form-item">
-                            @Html.TextBoxFor(n => n.Nome, null, new { @class = "form-control", Autofocus = "true", required = "true", pattern="[A-Za-z].{3,}", title="Digite seu nome aqui." })
+                            @Html.TextBoxFor(n => n.Nome, null, new { @class = "form-control", Autofocus = "true", required = "true", pattern = "[A-Za-z].{3,}", title = "Digite seu nome aqui." })
                             @Html.LabelFor(n => n.Nome, new { @class = "label-float" })
-                            </div>
+                        </div>
                         <div class="form-item">
                             @Html.TextBoxFor(n => n.Login, null, new { @class = "form-control", required = "true", pattern = "[A-Za-z].{3,}", title = "Digite o nome do usuário aqui." })
                             @Html.LabelFor(n => n.Login, new { @class = "label-float" })
-                            </div>
+                        </div>
                         <div class="form-item">
                             @Html.PasswordFor(n => n.Senha, new { @class = "form-control", required = "true", title = "Digite sua senha aqui." })
                             @Html.LabelFor(n => n.Senha, new { @class = "label-float" })
-                            </div>
+                        </div>
                         <div class="form-item">
-                            @Html.Password("txtSenha02", null, new { @class = "form-control", required = "true", title = "Confirme sua senha aqui." })
+                            @Html.Password("txtSenha02", null, new { @class = "form-control", id = "senhaValidacao", required = "true", title = "Confirme sua senha aqui." })
                             @Html.Label("Confirma Senha", new { @class = "label-float" })
-                            </div>
-                        <button class="botao" type="submit">Salvar</button>
+                        </div>
+                        <button class="botao" id="btnSubmit" type="submit">Salvar</button>
                         <button class="botao" type="reset">Limpar Campos</button>
                         <span class="float-link">
                             @Html.ActionLink("« Cancelar Cadastro", "Index", null, new { @class = "link" })
                         </span>
                     </section>
                 </fieldset>
-            </form>            
+            </form>
         </section>
     </main>
 
 
-    <script src="~/Media/Script/jquery-2.1.4.min.js"></script>
+    
+    <!-- Arquivos JavaScript -->
     @if (false)
     {
-        <script src="~/Media/Script/jquery-2.1.4-vsdoc.js"></script>
+        <script src="~/Media/Script/jquery-2.1.4-vsdoc.js" defer></script>
     }
-    <script src="~/Media/Script/script.js"></script>
+    <script src="~/Media/Script/jquery-2.1.4.min.js" defer></script>
+    <script src="~/Media/Script/cadastrousuario.js" defer></script>
+
 
 </body>
 </html>

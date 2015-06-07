@@ -3,51 +3,54 @@
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="pt-br">
 <head>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>ListarCompromissos</title>
     <link href="~/Media/Css/main.css" rel="stylesheet" />
-    
+
 </head>
 <body>
-    <h1 style="text-align:center; font-size:36px; font-family:'Trebuchet MS';padding-top:5px;">Compromissos</h1>
-   
-    
-    <!--Quando acionar este botao exibir lista de usuários para poder compartilhar-->
-    <button class="botao" type="submit">Compartilhar</button>
+    <main class="box">
+        <header class="area-titulo">
+            <h1 class="titulo">Compromissos</h1>
+        </header>
+        <section class="area-texto">
+            <span class="msg">
+                @Html.ViewBag.MsgErro
+                @Html.ViewBag.Msg
+            </span>
 
-    <span style="position:absolute">
-        <!--class="float-link"-->
-        @Html.ActionLink("«Voltar", "BoasVindas", null, new { @class = "link" })
-    </span>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody id="trContainer"></tbody>
+                    <tfoot>
+                        <tr>
+                            <td> </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <button class="botao" type="submit">Compartilhar</button>
+        </section>
+        <footer class="rodape">
+            @Html.ActionLink("Voltar", "BoasVindas", null, new { @class = "link" })
+        </footer>
+    </main>
 
-
-    <!--Esse span abaixo é para exibir erro ao compartilhar-->
-    <span>
-        @Html.ViewBag.MsgErro
-        @Html.ViewBag.Msg
-    </span>
-
-
-
-    <br /><br />
-
-    <div>
-        <table>
-            <thead><tr><td></td></tr></thead>
-            <tbody id="trContainer"></tbody>
-            <tfoot><tr><td> </td></tr></tfoot>
-        </table>
-    </div>
-    
-    <script src="~/Media/Script/jquery-2.1.4.min.js"></script>
+    <!-- Arquivos JavaScript -->
     @if (false)
     {
-        <script src="~/Media/Script/jquery-2.1.4-vsdoc.js"></script>
+        <script src="~/Media/Script/jquery-2.1.4-vsdoc.js" defer></script>
     }
-    <script src="~/Media/Script/script.js"></script>
+    <script src="~/Media/Script/jquery-2.1.4.min.js" defer></script>
+    <script src="~/Media/Script/exbircompromissos.js" defer></script>
 
 </body>
 </html>

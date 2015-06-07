@@ -13,7 +13,7 @@
     margin: 0 auto;
     padding-bottom: 0.75em;
     padding-top: 0.75em;
-    width: 55em;
+    width: 100%;
 }
 
 .titulo {
@@ -24,6 +24,7 @@
 
 .main {
     background-color: #dadfe1;
+    display: block;
     height: auto;
     margin: 5em auto;
     width: 55em;
@@ -65,7 +66,7 @@ fieldset {
 }
 
 .label-float {
-  color: #999999;
+  color: #999;
   position: absolute;
   top: 0;
   line-height: 1.75em;
@@ -77,11 +78,16 @@ fieldset {
 
     .form-control:focus + .label-float,
     .form-control:valid + .label-float {
-        color: #ccc;
+        color: #999;
         font-size: 0.75em;
         line-height: 1.5;
         padding: 0 1.5em;
     }
+
+.inputarea {
+    height: 20em;
+    max-width: 50em;
+}
 
 .botao {
     background-color: #4b77be;
@@ -113,3 +119,71 @@ fieldset {
     .link:hover {
         color: #1e8bc3;
     }
+
+.bg-title {
+    background-color: #4b77be;
+    bottom: 50%;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 5em;
+    height: 1.2em;
+    left: 50%;
+    margin-left: -4.5em;
+    margin-top: -2em;
+    opacity: 0.4;
+    padding: 0.5em;
+    position: absolute;
+    top: 50%;
+    width: 8em;
+    z-index: -1;
+}
+
+.box {    
+    border: 0.1em solid #999;
+    box-shadow: 0.5em 0.5em 0.5em rgba(0, 0, 0 , 0.4);
+    display: block;
+    margin: 2em auto;
+    min-height: 40em;
+    position: relative;
+    width: 800px;
+}
+
+.area-texto {
+    padding: 1em;
+}
+
+.header-link {
+    display: flex;
+    font-size: 1.5em;
+    font-weight: bolder;
+    justify-content: space-around;
+}
+
+.titulo-link {
+    align-self: flex-end;    
+    cursor: pointer;
+    list-style: none;
+}
+
+.titulo-link a {
+    color: #fff;
+    padding: 0.75em;
+}
+    
+    .titulo-link a:focus,
+    .titulo-link a:hover {
+        color: #eee;
+    }
+
+.msg {
+    margin: 2em;
+    color: #446cb3;
+    font-weight: bold;
+}
+
+.rodape {
+    bottom: 1em;
+    font-size: 1.25em;  
+    left: 49%;
+    position: absolute;
+}

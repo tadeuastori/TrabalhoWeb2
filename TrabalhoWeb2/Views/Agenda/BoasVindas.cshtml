@@ -2,47 +2,70 @@
     Layout = null;
 }
 <!DOCTYPE html>
-
-<html>
+<html lang="pt-br">
 <head>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>BoasVindas</title>
     <link href="~/Media/Css/main.css" rel="stylesheet" />
 </head>
 <body>
-    <h1 style="text-align:center; font-size:36px; font-family:'Trebuchet MS';padding-top:5px;">Seja Bem Vindo!</h1>
-    <span>
-        @Html.ViewBag.MsgErro
-        @Html.ViewBag.Msg
-    </span>
-    <div>
-        <table cellspacing="20">
-            <tr>
-                <td class="menu" id="lnkInicio" ><a href="/Agenda/CadastrarCompromisso">Cadastrar Compromisso</a></td>
-            </tr>
-            <tr>
-                <td class="menu" id="lnkInicio"><a href="/Agenda/ListarCompromissos">Listar Compromissos</a></td>
-            </tr>
-        </table>
-    </div>
+    <main class="box">
+        <h1 class="bg-title">Seja Bem Vindo!</h1>
 
-    <br /><br />
+        <header class="area-titulo">
+            <ul class="header-link">
+                <li class="titulo-link">
+                    <a href="/Agenda/CadastrarCompromisso">Cadastrar Compromisso</a>
+                </li>
+                <li class="titulo-link">
+                    <a href="/Agenda/ListarCompromissos">Listar Compromissos</a>
+                </li>
+            </ul>
+        </header>
+        <section class="area-texto">
+            <span class="msg">
+                @Html.ViewBag.MsgErro
+                @Html.ViewBag.Msg
+            </span>
+            <div>
+                <table cellspacing="20">
+                    <tr>
+                        <td class="menu" id="lnkInicio"></td>
+                    </tr>
+                    <tr>
+                        <td class="menu" id="lnkInicio"></td>
+                    </tr>
 
-    <div>
-        <table>
-            <thead><tr><td></td></tr></thead>
-            <tbody id="trContainer"></tbody>
-        </table>
-    </div>
-        <tfoot><tr><td> </td></tr></tfoot>
+                </table>
+            </div>
+
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody id="trContainer"></tbody>
+                    <tfoot>
+                        <tr>
+                            <td> </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </section>
+    </main>
 
 
-    <script src="~/Media/Script/jquery-2.1.4.min.js"></script>
+    <!-- Arquivos JavaScript -->
     @if (false)
     {
-        <script src="~/Media/Script/jquery-2.1.4-vsdoc.js"></script>
+        <script src="~/Media/Script/jquery-2.1.4-vsdoc.js" defer></script>
     }
-    <script src="~/Media/Script/script.js"></script>
+    <script src="~/Media/Script/jquery-2.1.4.min.js" defer></script>
+    <script src="~/Media/Script/exbircompromissos.js" defer></script>
 
 </body>
 </html>
