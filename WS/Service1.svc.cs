@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
@@ -83,6 +84,14 @@ namespace WS
                         dac.Agenda.Add(agenda);
                         dac.SaveChanges();
 
+                        Participantes participante = new Participantes();
+
+                        participante.UsuarioID = agenda.UsuarioId;
+                        participante.AgendaId = agenda.AgendaId;
+
+                        dac.Participantes.Add(participante);
+                        dac.SaveChanges();
+
                         result = true;
                     }
                     else
@@ -134,15 +143,29 @@ namespace WS
             {
                 using (DataAccessController dac = new DataAccessController())
                 {
-                    if(qtd > 0)
+                    if (qtd > 0)
                     {
-                        return dac.Agenda.Where(x => x.UsuarioId == IdUsuario && x.DataCompromisso >= DateTime.Now).Take(qtd).OrderBy(o => o.DataCompromisso).ToList();
+                        List<Agenda> query = (from a in dac.Agenda
+                                             join p in dac.Participantes on a.AgendaId equals p.AgendaId
+                                             where p.UsuarioID == IdUsuario
+                                             select a).Take(qtd).OrderByDescending(a => a.DataCompromisso).ToList();
+
+                        return query; 
+                        
+                        // return dac.Agenda.Where(x => x.UsuarioId == IdUsuario && x.DataCompromisso >= DateTime.Today).Take(qtd).OrderByDescending(o => o.DataCompromisso).ToList();
                     }
                     else
                     {
-                        return dac.Agenda.Where(x => x.UsuarioId == IdUsuario && x.DataCompromisso >= DateTime.Now).OrderBy(o => o.DataCompromisso).ToList();
+                        List<Agenda> query = (from a in dac.Agenda
+                                              join p in dac.Participantes on a.AgendaId equals p.AgendaId
+                                              where p.UsuarioID == IdUsuario
+                                              select a).OrderByDescending(a => a.DataCompromisso).ToList();
+
+                        return query;
+
+                        //return dac.Agenda.Where(x => x.UsuarioId == IdUsuario).OrderByDescending(o => o.DataCompromisso).ToList();
                     }
-                    
+
                 }
             }
             catch (Exception)
@@ -235,25 +258,68 @@ namespace WS
             {
                 using (DataAccessController dac = new DataAccessController())
                 {
-                    List<Usuario> user = dac.Usuario.ToList();
+                    List<Usuario> lstUser = dac.Usuario.ToList();
+                    List<Usuario> newUser = lstUser;
+                    bool participa = true;
 
-                    foreach (Participantes part in lstPart)
+                    foreach (Usuario usuario in lstUser.ToList())
                     {
-                        foreach (Usuario usua in user)
+                        foreach (Participantes participante in lstPart.ToList())
                         {
-                            if (part.UsuarioID != usua.UsuarioId)
-                            {
-                                user.Remove(usua);
-                            }
+                            if (participante.UsuarioID == usuario.UsuarioId)
+                                participa = false;
                         }
+
+                        if (participa)
+                        {
+                            newUser.Remove(usuario);
+                        }
+
+                        participa = true;
                     }
 
-                    return user;
+                    return newUser;
                 }
             }
             catch (Exception)
             {
                 return null;
+            }
+        }
+
+        public bool verificaParticipante(int IdUsuario, int IdAgenda)
+        {
+            try
+            {
+                using (DataAccessController dac = new DataAccessController())
+                {
+                    List<Participantes> participante = dac.Participantes.Where(x => x.UsuarioID == IdUsuario && x.AgendaId == IdAgenda).ToList();
+
+                    return participante.Count == 0 ? false : true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool excluirParticipantes(int IdUsuario, int IdAgenda)
+        {
+            try
+            {
+                using (DataAccessController dac = new DataAccessController())
+                {
+                    Participantes participante = dac.Participantes.Where(x => x.AgendaId == IdAgenda && x.UsuarioID == IdUsuario).FirstOrDefault();
+                    dac.Participantes.Remove(participante);
+                    dac.SaveChanges();
+                }
+
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
     }

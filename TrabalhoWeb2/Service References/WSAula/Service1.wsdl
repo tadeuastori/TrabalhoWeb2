@@ -73,6 +73,18 @@
   <wsdl:message name="IService1_retornaUsuarioPorLOGIN_OutputMessage">
     <wsdl:part name="parameters" element="tns:retornaUsuarioPorLOGINResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_verificaParticipante_InputMessage">
+    <wsdl:part name="parameters" element="tns:verificaParticipante" />
+  </wsdl:message>
+  <wsdl:message name="IService1_verificaParticipante_OutputMessage">
+    <wsdl:part name="parameters" element="tns:verificaParticipanteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_excluirParticipantes_InputMessage">
+    <wsdl:part name="parameters" element="tns:excluirParticipantes" />
+  </wsdl:message>
+  <wsdl:message name="IService1_excluirParticipantes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:excluirParticipantesResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="verificaLogin">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/verificaLogin" message="tns:IService1_verificaLogin_InputMessage" />
@@ -117,6 +129,14 @@
     <wsdl:operation name="retornaUsuarioPorLOGIN">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/retornaUsuarioPorLOGIN" message="tns:IService1_retornaUsuarioPorLOGIN_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/retornaUsuarioPorLOGINResponse" message="tns:IService1_retornaUsuarioPorLOGIN_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="verificaParticipante">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/verificaParticipante" message="tns:IService1_verificaParticipante_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/verificaParticipanteResponse" message="tns:IService1_verificaParticipante_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="excluirParticipantes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/excluirParticipantes" message="tns:IService1_excluirParticipantes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/excluirParticipantesResponse" message="tns:IService1_excluirParticipantes_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -213,6 +233,24 @@
     </wsdl:operation>
     <wsdl:operation name="retornaUsuarioPorLOGIN">
       <soap:operation soapAction="http://tempuri.org/IService1/retornaUsuarioPorLOGIN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verificaParticipante">
+      <soap:operation soapAction="http://tempuri.org/IService1/verificaParticipante" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="excluirParticipantes">
+      <soap:operation soapAction="http://tempuri.org/IService1/excluirParticipantes" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

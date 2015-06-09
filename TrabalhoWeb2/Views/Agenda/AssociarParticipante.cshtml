@@ -1,0 +1,168 @@
+﻿@model TrabalhoWeb2.WSAula.Agenda
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Associar Participante</title>
+    <link href="~/Media/Css/main.css" rel="stylesheet" />
+    <script src="~/Media/Script/jquery-2.1.4.min.js"></script>
+    <script>
+
+    $(document).ready(
+        function () {
+            $.getJSON(
+                '@Url.Content("~/Agenda/listarUsuario")',
+                    null,
+                    function (data) {
+                        $('#lstUsuario').find('option').remove();
+                        $.each(
+                            data,
+                            function (index) {
+                                $('#lstUsuario').append('<option value="' + data[index].UsuarioId + '">' + data[index].Nome + '</option>');
+                            })
+
+                    });
+
+            $.getJSON(
+                '@Url.Content("~/Agenda/retornaParticipantes")',
+                { evento: $('#AgendaId').val() },
+                function (val) {
+                    tag = '';
+                    $.each(
+                        val,
+                        function (ind) {
+                            tag += '<div class="divParticipante">' + val[ind].Nome + '</div>';                            
+                        });
+                    $("#tdBody").append(tag);
+                });
+
+            $('#btnAdicionar').click(
+                function () {
+                    $('#carregando').html('Salvando Dados. Aguarde!');
+
+                    $.post(
+                        '@Url.Content("~/Agenda/adicionarParticipante")',
+                    {
+                        IdNovoUsuario: $('#lstUsuario').val(),
+                        IdAgenda: $('#AgendaId').val(),
+                        IdUsuario: $('#UsuarioId').val(),
+                    },
+                    function () {
+                        $('#carregando').html('');
+                        alert('Participante adicionado com sucesso!');
+                        location.reload();
+                    }
+                    )
+                });
+
+            $('#btnRemover').click(
+                function () {
+                    $('#carregando').html('Salvando Dados. Aguarde!');
+
+                    $.post(
+                        '@Url.Content("~/Agenda/removerParticipante")',
+                    {
+                        IdNovoUsuario: $('#lstUsuario').val(),
+                        IdAgenda: $('#AgendaId').val(),
+                        IdUsuario: $('#UsuarioId').val(),
+                    },
+                    function () {
+                        $('#carregando').html('');
+                        alert('Participante removido com sucesso!');
+                        location.reload();
+                    }
+                    )
+                });
+
+        });
+
+    </script>
+
+
+
+</head>
+<body>
+    <main class="main">
+        <div class="area-titulo">
+            <h1 class="titulo">Cadastro de Compromisso</h1>
+        </div>
+        <span class="msg">
+            @Html.ViewBag.MsgErro
+            @Html.ViewBag.Msg
+        </span>
+        <section class="form">
+            <form action="" method="post" id="formulario">
+
+                @Html.HiddenFor(n => n.AgendaId)
+                @Html.HiddenFor(n => n.UsuarioId)
+
+                <fieldset>
+                    <section class="form-group">
+                        <div class="form-item">
+                            @Html.TextBoxFor(n => n.Titulo, null, new { @class = "form-control", Autofocus = "true", @readonly = "true", required = "true", pattern = "[A-Za-z].{3,}", title = "Digite o título de seu compromisso!." })
+                            @Html.LabelFor(n => n.Titulo, new { @class = "label-float" })
+                        </div>
+                        <div class="form-item">
+                            @Html.TextBoxFor(n => n.DataCompromisso, null, new { @class = "form-control", @readonly = "true", type = "date", required = "true", value = "2015/06/06", title = "Digite a data de seu compromisso!." })
+                            @Html.LabelFor(n => n.DataCompromisso, new { @class = "label-float" })
+                        </div>
+                        <div class="form-item">
+                            @Html.TextAreaFor(n => n.Descricao, new { @class = "form-control inputarea", @readonly = "true", required = "true", title = "Digite a descriçao de seu compromisso aqui!." })
+                            @Html.LabelFor(n => n.Descricao, new { @class = "label-float" })
+                        </div>
+                        <div class="form-item">
+                            <select id="lstUsuario" class="form-control"></select>
+                            @Html.Label("Participante", new { @class = "label-float" })
+                        </div>
+
+                        <br />
+                        <h1 id="carregando"></h1>
+                        <br />
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Participantes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="tdBody"></td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                        <br />
+
+                        <button class="botao" id="btnAdicionar" type="button">Adicionar Participante</button>
+                        <button class="botao" id="btnRemover" type="button">Remover Participante</button>
+                        <span class="float-link">
+                            @Html.ActionLink("« Voltar", "ListarCompromissos", null, new { @class = "link" })
+                        </span>
+                    </section>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+
+
+    <!-- Arquivos JavaScript -->
+    @if (false)
+    {
+        <script src="~/Media/Script/jquery-2.1.4-vsdoc.js" defer></script>
+    }
+    <script src="~/Media/Script/jquery-2.1.4.min.js" defer></script>
+    <script src="~/Media/Script/cadastrocompromisso.js" defer></script>
+
+</body>
+</html>

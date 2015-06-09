@@ -112,6 +112,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AgendaController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -120,6 +121,7 @@
     <Compile Include="Models\Participantes.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorio\AutorizacaoDeAcesso.cs" />
     <Compile Include="Service References\WSAula\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -176,6 +178,7 @@
     <Content Include="Views\Agenda\BoasVindas.cshtml" />
     <Content Include="Views\Agenda\CadastrarCompromisso.cshtml" />
     <Content Include="Views\Agenda\ListarCompromissos.cshtml" />
+    <Content Include="Views\Agenda\AssociarParticipante.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

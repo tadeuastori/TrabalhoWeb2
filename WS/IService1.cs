@@ -48,5 +48,11 @@ namespace WS
 
         [OperationContract]
         Usuario retornaUsuarioPorLOGIN(string login);
+
+        [OperationContract]
+        bool verificaParticipante(int IdUsuario, int IdAgenda);
+
+        [OperationContract]
+        bool excluirParticipantes(int IdUsuario, int IdAgenda);
     }
 }

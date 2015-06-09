@@ -4,7 +4,7 @@
     font-size: 1em;
     margin: 0;
     padding: 0;
-    text-decoration: none
+    text-decoration: none;
 }
 
 .area-titulo {
@@ -44,45 +44,45 @@ fieldset {
 }
 
 .form-item {
-  margin-bottom: 1.25em;
-  max-width: none;
-  position: relative;
+    margin-bottom: 1.25em;
+    max-width: none;
+    position: relative;
 }
 
 .form-control {
-  box-sizing: border-box;
-  border-radius: 0.15em;
-  border: 0.1em solid #999;
-  color: #333333;
-  font-size: 1em;
-  display: block;
-  height: 3em;
-  padding: 1.5em 1.5em 0;
-  width: 100%;
+    box-sizing: border-box;
+    border-radius: 0.15em;
+    border: 0.1em solid #999;
+    color: #333333;
+    font-size: 1em;
+    display: block;
+    height: 3em;
+    padding: 1.5em 1.5em 0;
+    width: 100%;
 }
 
-.form-control:focus {
-  border-color: #428bca;
-}
+    .form-control:focus {
+        border-color: #428bca;
+    }
 
 .label-float {
-  color: #999;
-  position: absolute;
-  top: 0;
-  line-height: 1.75em;
-  padding: 0.75em 1.5em;
-  -webkit-transition: line-height linear 0.2s;
-  transition: line-height linear 0.2s;
-  cursor: text;
+    color: #999;
+    position: absolute;
+    top: 0;
+    line-height: 1.75em;
+    padding: 0.75em 1.5em;
+    -webkit-transition: line-height linear 0.2s;
+    transition: line-height linear 0.2s;
+    cursor: text;
 }
 
-    .form-control:focus + .label-float,
-    .form-control:valid + .label-float {
-        color: #999;
-        font-size: 0.75em;
-        line-height: 1.5;
-        padding: 0 1.5em;
-    }
+.form-control:focus + .label-float,
+.form-control:valid + .label-float {
+    color: #999;
+    font-size: 0.75em;
+    line-height: 1.5;
+    padding: 0 1.5em;
+}
 
 .inputarea {
     height: 20em;
@@ -138,9 +138,9 @@ fieldset {
     z-index: -1;
 }
 
-.box {    
+.box {
     border: 0.1em solid #999;
-    box-shadow: 0.5em 0.5em 0.5em rgba(0, 0, 0 , 0.4);
+    box-shadow: 0.5em 0.5em 0.5em rgba(0, 0, 0, 0.4);
     display: block;
     margin: 2em auto;
     min-height: 40em;
@@ -160,20 +160,20 @@ fieldset {
 }
 
 .titulo-link {
-    align-self: flex-end;    
+    align-self: flex-end;
     cursor: pointer;
     list-style: none;
 }
 
-.titulo-link a {
-    color: #fff;
-    padding: 0.75em;
-}
-    
-    .titulo-link a:focus,
-    .titulo-link a:hover {
-        color: #eee;
+    .titulo-link a {
+        color: #fff;
+        padding: 0.75em;
     }
+
+        .titulo-link a:focus,
+        .titulo-link a:hover {
+            color: #eee;
+        }
 
 .msg {
     margin: 2em;
@@ -181,14 +181,32 @@ fieldset {
     font-weight: bold;
 }
 
-.msg p {
-    color: #446cb3;
-    margin-left: 1.5em;
-}
+    .msg p {
+        color: #446cb3;
+        margin-left: 1.5em;
+    }
 
 .rodape {
     bottom: 1em;
-    font-size: 1.25em;  
+    font-size: 1.25em;
     left: 49%;
     position: absolute;
+}
+
+.divParticipante {
+    border: 1px black solid;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #999;
+    font-weight: bold;
+    text-align: center;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+.tdCompromisso {
+    border: 1px black solid;
+    margin: 2px 0px;
+    padding: 3px;
+    margin: auto;
 }

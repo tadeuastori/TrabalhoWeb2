@@ -6,13 +6,15 @@ using System.Web.Mvc;
 
 namespace TrabalhoWeb2.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         //
         // GET: /Home/
 
         public ActionResult Index()
         {
+            MvcApplication.UsuarioID = default(int);
+
             return View();
         }
 
@@ -40,7 +42,6 @@ namespace TrabalhoWeb2.Controllers
                 return View("Index");
             }
         }
-
 
         [HttpPost] 
         public ActionResult salvarUsuario(WSAula.Usuario model)
