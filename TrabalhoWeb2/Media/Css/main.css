@@ -138,6 +138,10 @@ fieldset {
     z-index: -1;
 }
 
+.lista-msg {
+
+}
+
 .box {
     border: 0.1em solid #999;
     box-shadow: 0.5em 0.5em 0.5em rgba(0, 0, 0, 0.4);

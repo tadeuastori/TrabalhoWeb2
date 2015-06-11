@@ -9,11 +9,50 @@
     <meta name="viewport" content="width=device-width" />
     <title>ListarCompromissos</title>
     <link href="~/Media/Css/main.css" rel="stylesheet" />
+</head>
+<body>
+    <main class="box">
+        <header class="area-titulo">
+            <h1 class="titulo">Compromissos</h1>
+        </header>
+        <section class="area-texto">
+            <span class="msg">
+                <p>@Html.ViewBag.MsgErro</p>
+                <p>@Html.ViewBag.Msg</p>
+            </span>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody id="trContainer"></tbody>
+                    <tfoot>
+                        <tr>
+                            <td>
+                                
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </section>
+        <footer class="rodape">
+            <span class="float-link">
+                @Html.ActionLink("Voltar", "BoasVindas", null, new { @class = "link" })
+            </span>
+        </footer>
+    </main>
 
+    <!-- Arquivos JavaScript -->
+    @if (false)
+    {
+        <script src="~/Media/Script/jquery-2.1.4-vsdoc.js" defer></script>
+    }
     <script src="~/Media/Script/jquery-2.1.4.min.js"></script>
-
-    <script>
-
+    <script src="~/Media/Script/exbircompromissos.js" defer></script>
+    @*<script>
         $(document).ready(
             function () {
                 $.getJSON(
@@ -53,50 +92,6 @@
                         });
             });
 
-    </script>
-
-</head>
-<body>
-    <main class="box">
-        <header class="area-titulo">
-            <h1 class="titulo">Compromissos</h1>
-        </header>
-        <section class="area-texto">
-            <span class="msg">
-                @Html.ViewBag.MsgErro
-                @Html.ViewBag.Msg
-            </span>
-
-            <div>
-                <table>
-                    <thead>
-                        <tr>
-                            <td></td>
-                        </tr>
-                    </thead>
-                    <tbody id="trContainer"></tbody>
-                    <tfoot>
-                        <tr>
-                            <td>
-                                
-                            </td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-        </section>
-        <footer class="rodape">
-            <span class="float-link">
-                @Html.ActionLink("« Voltar", "BoasVindas", null, new { @class = "link" })
-            </span>
-        </footer>
-    </main>
-
-    <!-- Arquivos JavaScript -->
-    @if (false)
-    {
-        <script src="~/Media/Script/jquery-2.1.4-vsdoc.js" defer></script>
-    }
-
+    </script>*@
 </body>
 </html>

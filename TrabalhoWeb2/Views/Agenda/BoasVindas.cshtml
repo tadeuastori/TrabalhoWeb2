@@ -8,9 +8,61 @@
     <meta name="viewport" content="width=device-width" />
     <title>BoasVindas</title>
     <link href="~/Media/Css/main.css" rel="stylesheet" />
-    <script src="~/Media/Script/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+    <main class="box">
+        <h1 class="bg-title">Seja Bem Vindo!</h1>
 
-    <script>
+        <header class="area-titulo">
+            <ul class="header-link">
+                <li class="titulo-link">
+                    <a href="/Agenda/CadastrarCompromisso">Cadastrar Compromisso</a>
+                </li>
+                <li class="titulo-link">
+                    <a href="/Agenda/ListarCompromissos">Listar Compromissos</a>
+                </li>
+                <li class="titulo-link">
+                    <a href="/Home/Index">Sair</a>
+                </li>
+            </ul>
+        </header>
+        <section class="area-texto">
+            <span class="msg">
+                <p>@Html.ViewBag.MsgErro</p>
+                <p>@Html.ViewBag.Msg</p>
+            </span>        
+            <div class="lista-msg">
+                <ul id="retornoLista">
+                    
+                </ul>
+                <table>
+                    <thead>
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody id="trContainer"></tbody>
+                    <tfoot>
+                        <tr>
+                            <td> </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- Arquivos JavaScript -->
+    @if (false)
+    {
+        <script src="~/Media/Script/jquery-2.1.4-vsdoc.js" defer></script>
+    }
+    <script src="~/Media/Script/jquery-2.1.4.min.js"></script>
+    <script src="~/Media/Script/exbircompromissos.js" defer></script>
+
+
+    @*<script>
 
         $(document).ready(
             function () {
@@ -46,69 +98,7 @@
                         });
             });
 
-    </script>
-
-</head>
-<body>
-    <main class="box">
-        <h1 class="bg-title">Seja Bem Vindo!</h1>
-
-        <header class="area-titulo">
-            <ul class="header-link">
-                <li class="titulo-link">
-                    <a href="/Agenda/CadastrarCompromisso">Cadastrar Compromisso</a>
-                </li>
-                <li class="titulo-link">
-                    <a href="/Agenda/ListarCompromissos">Listar Compromissos</a>
-                </li>
-                <li class="titulo-link">
-                    <a href="/Home/Index">Sair</a>
-                </li>
-            </ul>
-        </header>
-        <section class="area-texto">
-            <span class="msg">
-                @Html.ViewBag.MsgErro
-                @Html.ViewBag.Msg
-            </span>
-            <div>
-                <table cellspacing="20">
-                    <tr>
-                        <td class="menu" id="lnkInicio"></td>
-                    </tr>
-                    <tr>
-                        <td class="menu" id="lnkInicio"></td>
-                    </tr>
-
-                </table>
-            </div>
-
-            <div>
-                <table>
-                    <thead>
-                        <tr>
-                            <td></td>
-                        </tr>
-                    </thead>
-                    <tbody id="trContainer"></tbody>
-                    <tfoot>
-                        <tr>
-                            <td> </td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-        </section>
-    </main>
-
-
-    <!-- Arquivos JavaScript -->
-    @if (false)
-    {
-    <script src="~/Media/Script/jquery-2.1.4-vsdoc.js" defer></script>
-    }
-
-    @*<script src="~/Media/Script/exbircompromissos.js" defer></script>*@
+    </script>*@
 
 </body>
 </html>
