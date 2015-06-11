@@ -135,6 +135,7 @@
     <Content Include="Global.asax" />
     <Content Include="Media\Script\cadastrocompromisso.js" />
     <Content Include="Media\Script\cadastrousuario.js" />
+    <Content Include="Media\Script\exibirparticipantes.js" />
     <Content Include="Media\Script\jquery-2.1.4.min.map" />
     <None Include="Service References\WSAula\Service1.disco" />
     <None Include="Service References\WSAula\configuration91.svcinfo" />

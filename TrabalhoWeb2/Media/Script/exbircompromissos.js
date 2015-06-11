@@ -1,59 +1,45 @@
-﻿//$(document).ready(
-//    function () {
-//        $.getJSON('/Agenda/retornaCompromissos', { qtd: 5 }, function (data) {
-//            $("#trContainer").html('');
-//            if (data.length == 0) {
-//                $("#trContainer").append('<tr><td><h2>Sem compromissos futuros</h2></td></tr>');
-//            } else {
-//                $.each(data, function (index) {
-//                    var d = new Date(parseInt(data[index].DataCompromisso.substr(6))),
-//                        tag = '<tr><td>' +
-//                                    '<div id="tituloCompromisso"><b>Título:</b> ' + data[index].Titulo + '</div>' +
-//                                    '<div id="dataCompromisso"><b>Data:</b> ' + d.toLocaleString() + '</div>' +
-//                                    '<div id="DescricaoCompromisso"><b>Descrição:</b> ' + data[index].Descricao + '</div>' +
-//                                    '<div id="participantesCompromisso"><b>Participantes:</b> ';
-//                    $.getJSON('/Agenda/retornaParticipantes', { evento: data[index].AgendaId }, function (ind) {
-//                        tag += val[ind].Nome + ', ';
-//                    });
-//                    $("#trContainer").append(tag + '</div>' + '</td></tr>');
-//                });
-//            }
-//        });
-//    });
-
-
-
-$(document).ready(
+﻿$(document).ready(
     function () {
-        var $msg = $("#trContainer"),
-            $retorno = $('#retornoLista');
+        var $msg = $(".msg"),
+            $retorno = $('#retornoLista'),
+            url = location.href;
         $.ajax({
             dataType: "json",
             url: "/Agenda/retornaCompromissos",
-            data: { qtd: 5 },
-            success: function (data) {                
+            data: (function () {                
+                if (url.indexOf("BoasVindas") != -1) {
+                    return { qtd: 5 };
+                } else if (url.indexOf("ListarCompromissos") != -1) {
+                    return { qtd: 0 };
+                }                
+            }()),
+            success: function (data) {
                 if (data.length === 0) {
-                    $msg.append('<p>Sem compromissos futuros</p>');
+                    $msg.append('<p>Sem compromissos cadastrados.</p>');
                 } else {
                     $.each(data, function (index) {
                         var d = new Date(parseInt(data[index].DataCompromisso.substr(6))),
-                            tag = '<tr><td class="tdCompromisso">' +
-                                                    '<div id="tituloCompromisso"><b>Título:</b> ' + data[index].Titulo + '</div>' +
-                                                    '<div id="dataCompromisso"><b>Data:</b> ' + d.toLocaleString() + '</div>' +
-                                                    '<div id="DescricaoCompromisso"><b>Descrição:</b> ' + data[index].Descricao + '</div>' +
-                                                    '<div id="participantesCompromisso"><b>Participantes:</b><br> ';
+                            tag = '<li class="lista-compromisso"><div><ul>' +
+                                    '<li id=""><h2 class="lista-titulo">Título:</h2> ' + data[index].Titulo + '</li>' +
+                                    '<li id=""><h2 class="lista-titulo">Data:</h2> ' + d.toLocaleString() + '</li>' +
+                                    '<li id=""><h2 class="lista-titulo">Descrição:</h2> ' + data[index].Descricao + '</li>' +
+                                    '<li id=""><h2 class="lista-titulo">Participantes:</h2>';
                         $.ajax({
                             dataType: "json",
                             url: "/Agenda/retornaParticipantes",
                             data: { evento: data[index].AgendaId },
                             success: function (val) {
                                 $.each(val, function (ind) {
-                                    tag += '<div class="divParticipante">' + val[ind].Nome + '</div>';
+                                    tag += '<li class="lista-participante">' + val[ind].Nome + '</li>';
+                                    if (url.indexOf("ListarCompromissos") != -1) {
+                                        tag += '<div class="link-topo"><a class="link" href="/Agenda/AssociarParticipante?evento=' + data[index].AgendaId + '">Adicionar Participantes</a></div>';
+                                    }
                                 });
-                                $("#trContainer").append(tag + '</div>' + '</td></tr>');
+                                
+                                $retorno.append(tag + '</div>');
                             }
                         });
-                    });
+                    });                    
                 }
             }
         });

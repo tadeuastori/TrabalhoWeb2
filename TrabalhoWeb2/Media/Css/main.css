@@ -2,6 +2,7 @@
     color: #000;
     font-family: Helvetica;
     font-size: 1em;
+    list-style: none;
     margin: 0;
     padding: 0;
     text-decoration: none;
@@ -23,7 +24,7 @@
 }
 
 .main {
-    background-color: #dadfe1;
+    background-color: #eee;
     display: block;
     height: auto;
     margin: 5em auto;
@@ -77,6 +78,7 @@ fieldset {
 }
 
 .form-control:focus + .label-float,
+.form-control:read-only + .label-float,
 .form-control:valid + .label-float {
     color: #999;
     font-size: 0.75em;
@@ -121,25 +123,49 @@ fieldset {
     }
 
 .bg-title {
-    background-color: #4b77be;
-    bottom: 50%;
-    border-radius: 50%;
-    color: #fff;
-    font-size: 5em;
-    height: 1.2em;
-    left: 50%;
-    margin-left: -4.5em;
-    margin-top: -2em;
-    opacity: 0.4;
-    padding: 0.5em;
-    position: absolute;
-    top: 50%;
-    width: 8em;
-    z-index: -1;
+    color: #446cb3;
+    font-size: 1.5em;
+    margin-bottom: 1.5em;
+    text-align: center;
 }
 
 .lista-msg {
+    display: flex;
+    flex-flow: row wrap;    
+    text-align: justify;
+}
 
+.bloco-participantes {
+    clear: both;
+}
+
+.lista-compromisso {
+    background-color: #fff;
+    border: 0.1em solid #333;
+    border-radius: 0.35em;    
+    box-sizing: border-box;
+    height: auto;
+    margin: 0.5em;    
+    padding: 2.5em 1em;
+    position: relative;
+    width: 15em;
+}
+
+.lista-participante {
+    background-color: #ccc;
+    border: 0.15px solid #000;
+    border-radius: 0.75em;
+    display: inline-block;
+    font-weight: bold;
+    margin-right: 0.25em;
+    margin-top: 0.5em;
+    padding: 0.15em 0.5em; 
+    text-align: center;
+}
+
+.lista-titulo {
+    display: inline-block;
+    margin-top: 0.5em;
 }
 
 .box {
@@ -191,26 +217,30 @@ fieldset {
     }
 
 .rodape {
-    bottom: 1em;
+    bottom: 0.5em;
     font-size: 1.25em;
     left: 49%;
+    margin-top: 2em;
+    padding-top: 1em;
     position: absolute;
 }
 
-.divParticipante {
-    border: 1px black solid;
-    padding-left: 10px;
-    padding-right: 10px;
-    background-color: #999;
-    font-weight: bold;
+.link-topo {
+    background-color: #4b77be;    
+    font-size: 1em;
+    left: -0.1em;
+    padding: 0.35em;
+    position: absolute;
     text-align: center;
-    margin-right: 5px;
-    display: inline-block;
+    top: -0.1em;
+    width: 97%;
 }
 
-.tdCompromisso {
-    border: 1px black solid;
-    margin: 2px 0px;
-    padding: 3px;
-    margin: auto;
+.link-topo a {
+    color: #fff;
+}
+
+.link-topo a:focus,
+.link-topo a:hover {
+    color: #eee;
 }

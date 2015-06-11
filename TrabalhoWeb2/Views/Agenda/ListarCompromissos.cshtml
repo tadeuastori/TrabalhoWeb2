@@ -11,7 +11,7 @@
     <link href="~/Media/Css/main.css" rel="stylesheet" />
 </head>
 <body>
-    <main class="box">
+    <main class="box main">
         <header class="area-titulo">
             <h1 class="titulo">Compromissos</h1>
         </header>
@@ -20,22 +20,8 @@
                 <p>@Html.ViewBag.MsgErro</p>
                 <p>@Html.ViewBag.Msg</p>
             </span>
-            <div>
-                <table>
-                    <thead>
-                        <tr>
-                            <td></td>
-                        </tr>
-                    </thead>
-                    <tbody id="trContainer"></tbody>
-                    <tfoot>
-                        <tr>
-                            <td>
-                                
-                            </td>
-                        </tr>
-                    </tfoot>
-                </table>
+            <div class="lista-msg">
+                <ul id="retornoLista" class="lista-msg"></ul>
             </div>
         </section>
         <footer class="rodape">
@@ -52,46 +38,5 @@
     }
     <script src="~/Media/Script/jquery-2.1.4.min.js"></script>
     <script src="~/Media/Script/exbircompromissos.js" defer></script>
-    @*<script>
-        $(document).ready(
-            function () {
-                $.getJSON(
-                    '@Url.Content("~/Agenda/retornaCompromissos")',
-                        { qtd: 0 },
-                        function (data) {
-                            $("#trContainer").html('');
-
-                            if (data.length == 0) {
-                                $("#trContainer").append('<tr><td><h2>Sem compromissos futuros</h2></td></tr>');
-                            } else {
-                                $.each(data, function (index) {
-                                    var d = new Date(parseInt(data[index].DataCompromisso.substr(6))),
-                                        tag = '<tr><td class="tdCompromisso">' +
-                                                    '<div id="tituloCompromisso"><b>Título:</b> ' + data[index].Titulo + '</div>' +
-                                                    '<div id="dataCompromisso"><b>Data:</b> ' + d.toLocaleString() + '</div>' +
-                                                    '<div id="DescricaoCompromisso"><b>Descrição:</b> ' + data[index].Descricao + '</div>' +
-                                                    '<div id="participantesCompromisso"><b>Participantes:</b> <br>';
-
-                                    $.getJSON(
-                                        '@Url.Content("~/Agenda/retornaParticipantes")',
-                                        { evento: data[index].AgendaId },
-                                        function (val) {
-
-                                            $.each(
-                                                val,
-                                                function (ind) {
-                                                    tag += '<div class="divParticipante">' + val[ind].Nome + '</div>';
-                                                });
-
-                                            $("#trContainer").append(tag + '</div>' +
-                                                '<a class="link" href="/Agenda/AssociarParticipante?evento=' + data[index].AgendaId + '">Adicionar Participantes</a>',
-                                                + '</td></tr>');
-                                        });
-                                });
-                            }
-                        });
-            });
-
-    </script>*@
 </body>
 </html>
