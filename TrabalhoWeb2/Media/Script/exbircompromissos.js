@@ -32,7 +32,7 @@
                                 $.each(val, function (ind) {
                                     tag += '<li class="lista-participante">' + val[ind].Nome + '</li>';
                                     if (url.indexOf("ListarCompromissos") != -1) {
-                                        tag += '<div class="link-topo"><a class="link" href="/Agenda/AssociarParticipante?evento=' + data[index].AgendaId + '">Adicionar Participantes</a></div>';
+                                        tag += '<div class="link-topo"><a class="link" href="/Agenda/AssociarParticipante?evento=' + data[index].AgendaId + '">+ Adicionar Participantes</a></div>';
                                     }
                                 });
                                 
