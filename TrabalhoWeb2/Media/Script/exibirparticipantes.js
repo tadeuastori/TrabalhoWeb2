@@ -21,7 +21,7 @@
                 $.each(
                     val,
                     function (ind) {
-                        tag += '<div class="lista-participante">' + val[ind].Nome + '</div>';
+                        tag += '<li class="lista-participante">' + val[ind].Nome + '</li>';
                     });
                 $("#tdBody").append(tag);
             });

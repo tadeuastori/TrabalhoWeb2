@@ -244,3 +244,28 @@ fieldset {
 .link-topo a:hover {
     color: #eee;
 }
+
+.box-participante {
+    background-color: #fff;
+    border: 0.1em solid #999;
+    min-height: 3em;
+    margin: 2.5em 0;
+    padding-bottom: 0.5em;
+    padding-left: 1.5em;
+    position: relative;
+}
+
+.title-form {
+    color: #999;
+    font-size: 0.75em;
+    font-weight: 500;
+    left: 0.5em;
+    line-height: 1.5;
+    padding: 0 1.5em;
+    position: absolute;
+}
+
+.campo-lista {
+    bottom: 0.5em; 
+    position: absolute;
+}

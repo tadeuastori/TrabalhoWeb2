@@ -45,29 +45,15 @@
                             @Html.Label("Participante", new { @class = "label-float" })
                         </div>
 
-                        <br />
-                        <h1 id="carregando"></h1>
-                        <br />
+                        <span id="carregando"></span>
 
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Participantes</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td id="tdBody"></td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <td></td>
-                                </tr>
-                            </tfoot>
-                        </table>
 
-                        <br />
+                        <div class="box-participante">
+                            <h2 class="title-form">Participantes</h2>
+
+                            <div id="tdBody" class="campo-lista"></div>
+
+                        </div>
 
                         <button class="botao" id="btnAdicionar" type="button">Adicionar Participante</button>
                         <button class="botao" id="btnRemover" type="button">Remover Participante</button>
